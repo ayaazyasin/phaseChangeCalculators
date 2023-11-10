@@ -8,5 +8,5 @@ Scripts to calculate liquid-vapor phase change mass flux using different models:
       K. Bellur, et. al. “Modeling Liquid–Vapor Phase Change Experiments: Cryogenic Hydrogen and Methane.” Colloids Surf. A (Oct 2023), doi:[10.1016/j.colsurfa.2023.131932](https://doi.org/10.1016/j.colsurfa.2023.131932).
 
 
-*The scripts are currently set up with material properties for Hydrogen.
+*The scripts are currently set up with material properties for Hydrogen.  
 **tst_alpha.m** is a function that calculates the accommodation coefficient using Transition State Theory. The function is needed for all three scripts. 

@@ -9,3 +9,4 @@ Scripts to calculate liquid-vapor phase change mass flux using different models:
 
 
 *The scripts are currently set up with material properties for Hydrogen.
+**tst_alpha.m** is a function that calculates the accommodation coefficient using Transition State Theory. The function is needed for all three scripts. 

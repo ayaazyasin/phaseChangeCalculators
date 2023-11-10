@@ -1,4 +1,4 @@
-% Single iteration of Wasyner-TST loop
+% Single iteration of Beta-form -TST loop
 % Ayaaz Yasin - Nov 09, 2023
 clear; %clc; 
 
@@ -10,10 +10,8 @@ TL      = 21.1;                      % [K], liquid temp
 PV      = 121405;                    % [Pa], vapor pressure
 
 % Constants
-M       = 2.016e-3; 		         % [kg/mol], molar mass of H2
 R       = 8.31446261815324;          % [J/K-mol], gas constant
 hfg     = (451.98-6.4659)*1e3;       % [J/kg], latent heat of vaporization
-VL      = 2.8751e-05;                % [m3/mol], molar volume of H2 at 21 K
 sigma   = 0.0018029;                 % [N/m], surface tension gradient at 21 K
 K       = 2;                         % [1/m], average curvature
 kB      = 1.380649E-23; 		     % [kg.m2/s2.K], Boltzmann's constant
@@ -33,18 +31,18 @@ PVsat = p1.*TV.^3 + p2.*TV.^2 + p3.*TV + p4;
 % beta-form mass flux equation
 cR = sqrt(2*kB*TV/m);                                       % [m/s]
 alpha_coeff     = 2*a/(2-a);                                % [-]
-S_coeff         = sqrt(M/(2*pi*R*TL));                      % [s/m]
+S_coeff         = PV/(sqrt(pi)*cR);                         % [s/m]
 beta            = 1;                                        % [-]
 tempRatio       = sqrt(TV/TL);                              % [-]
 
     term1  = PVsat/PV;
     term2a = 1 - (TV/TL);
-    term2b = RV*hfg;
+    term2b = RV*hfg/PV;
     term3a = TV/TL;
     term3b = RV/RL;
     term3c = Pc/PV; % no disjoining pressure
 presRatio       = term1 + term2a*term2b + term3a*term3b*term3c; % [-]
-mAreaFlux       = alpha_coeff*S_coeff*(beta*presRatio*tempRatio);  % [kg/m2-s], mass flux
+mAreaFlux       = alpha_coeff*S_coeff*(beta*presRatio*tempRatio-1);  % [kg/m2-s], mass flux
 
 % Integration
 r         = 5e-3;                   % [m], test cell radius

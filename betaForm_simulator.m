@@ -56,7 +56,8 @@ err_ratio = mFlow/mFlow_exp;
 % print statements
 fprintf('<strong>Beta-form calculation</strong>\n')
 fprintf('alpha\t\t\t= %0.4f\t\t[-]\n',a)
-fprintf('hfg\t\t\t\t= %0.0f\t\tJ/kg\n\n',hfg)
+fprintf('hfg\t\t\t\t= %0.0f\t\tJ/kg\n',hfg)
+fprintf('cR\t\t\t\t= %0.4e\tm/s\n\n',cR)
 fprintf('alpha_coeff\t\t= %0.4f\t\t[-]\n',alpha_coeff)
 fprintf('s_coeff\t\t\t= %0.4f\t\tkg/m^2.s\n',S_coeff)
 fprintf('TL-TV\t\t\t= %0.4f\t\tK\n',TL-TV)
